@@ -1,28 +1,26 @@
-import { Link } from "react-router-dom"; // Link, jeśli używasz React Router do nawigacji
+import { Link } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
+import SidebarTile from "./SidebarTile";
+import { sidebarItems } from "../data/SidebarItems";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col w-1/6 h-screen p-10">
-        <ProfileCard/>
-      <h2 className="text-center">Sidebar</h2>
-      <ul>
-        <li>
-          <Link to="/" className="blockhover:bg-gray-700">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className="block hover:bg-gray-700">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" className="block  hover:bg-gray-700">
-            Contact
-          </Link>
-        </li>
-      </ul>
+    <div className="flex flex-col items-center w-1/6 h-screen py-10 px-8">
+      <div className="flex flex-col items-center gap-10 w-full">
+        <ProfileCard />
+        <ul className="w-full">
+          {sidebarItems.map((item) => (
+            <li key={item.path}>
+              <Link to={item.path} className="w-full">
+                <SidebarTile
+                  icon={<item.icon size={30} />}
+                  title={item.title}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

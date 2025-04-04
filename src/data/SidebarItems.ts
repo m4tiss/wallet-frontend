@@ -8,7 +8,7 @@ export const sidebarItems: SidebarItem[] = [
     title: "Strona główna",
   },
   {
-    path: "/obligacje",
+    path: "/bonds",
     icon: PiggyBank,
     title: "Obligacje",
   },

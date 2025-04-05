@@ -1,7 +1,15 @@
 @import "tailwindcss";
+
+
+
 @layer base {
   html {
     font-family: 'Winky Sans', sans-serif;
     font-weight: 300;
   }
+}
+
+:root {
+  --color-bgCustom: #FAFAFA;
+  --color-mobileMenu: #2196F3;
 }

@@ -5,6 +5,7 @@ import MobileMenu from "./components/MobileMenu";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Login from "./components/Login";
 import PublicRoutes from "./components/PublicRoutes";
+import Registration from "./components/Registration";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
         </Route>
 
         <Route element={<ProtectedRoutes />}>

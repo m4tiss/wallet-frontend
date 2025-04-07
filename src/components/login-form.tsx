@@ -38,7 +38,7 @@ export function LoginForm({
       </div>
       <div className="text-center text-sm">
         Nie masz konta?{" "}
-        <a href="#" className="underline underline-offset-4">
+        <a href="/registration" className="underline underline-offset-4">
           Zarejestruj się
         </a>
       </div>

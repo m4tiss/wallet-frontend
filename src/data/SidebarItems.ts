@@ -3,7 +3,7 @@ import { SidebarItem } from '../interfaces/SidebarItem';
 
 export const sidebarItems: SidebarItem[] = [
   {
-    path: "/",
+    path: "/dashboard",
     icon: LayoutDashboard,
     title: "Strona główna",
   },

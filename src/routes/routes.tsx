@@ -1,10 +1,9 @@
-import { Route } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 
 
 const routes = [
     {
-        path: "/",
+        path: "/dashboard",
         element: <Dashboard />,
       },
 ];

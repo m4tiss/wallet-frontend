@@ -2,13 +2,42 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useState } from "react"
+import { useLogin } from "@/hooks/auth/useLogin"
+import { useNavigate } from 'react-router-dom'
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+
+  const { mutate } = useLogin()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    mutate({ email, password }, {
+      onSuccess: (data) => {
+        console.log('Login successful:', data)
+        // navigate('/dashboard')
+      },
+      onError: (err: any) => {
+
+        if (err.response?.status === 401) {
+          console.error('Invalid credentials, please try again.')
+          
+
+        } else {
+          console.error('Login failed:', err)
+        }
+      }
+    })
+  }
+
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form onSubmit={handleSubmit} className={cn("flex flex-col gap-6", className)} {...props}>
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-bold">Zaloguj się</h1>
         <p className="text-muted-foreground text-sm text-balance">
@@ -18,7 +47,7 @@ export function LoginForm({
       <div className="grid gap-6">
         <div className="grid gap-3">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@przyklad.com" required />
+          <Input id="email" type="email" placeholder="m@przyklad.com"  value={email} onChange={e => setEmail(e.target.value)} required />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
@@ -30,7 +59,7 @@ export function LoginForm({
               Zapomniałeś hasła?
             </a>
           </div>
-          <Input id="password" type="password" required />
+          <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
         </div>
         <Button type="submit" className="w-full">
           Zaloguj się

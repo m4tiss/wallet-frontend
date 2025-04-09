@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useLogin } from "@/hooks/auth/useLogin"
+import { useAuth } from "@/context/AuthContext"
 import { useNavigate } from 'react-router-dom'
 import { toast } from "sonner"
 
@@ -13,6 +14,7 @@ export function LoginForm({
 }: React.ComponentProps<"form">) {
 
   const { mutate } = useLogin()
+  const { login } = useAuth()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
@@ -21,17 +23,15 @@ export function LoginForm({
     e.preventDefault()
     mutate({ email, password }, {
       onSuccess: (data) => {
-        console.log('Login successful:', data)
-        // navigate('/dashboard')
+        login(data.access)
+        navigate('/dashboard')
       },
       onError: (err: any) => {
 
         if (err.response?.status === 401) {
-          console.error('Invalid credentials, please try again.')
           toast.error("Błędne dane logowania")
-
         } else {
-          console.error('Login failed:', err)
+          toast.error("Brak połączenia z serwerem")
         }
       }
     })

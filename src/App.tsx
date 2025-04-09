@@ -1,12 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner"
-import routes from "./routes/routes";
-import Sidebar from "./components/Sidebar";
-import MobileMenu from "./components/MobileMenu";
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import Login from "./components/Login";
-import PublicRoutes from "./components/PublicRoutes";
-import Registration from "./components/Registration";
+import routes from "@/routes/routes";
+import Sidebar from "@/components/Sidebar";
+import MobileMenu from "@/components/MobileMenu";
+import ProtectedRoutes from "@/components/ProtectedRoutes";
+import Login from "@/components/auth/Login";
+import PublicRoutes from "@/components/PublicRoutes";
+import Registration from "@/components/auth/Registration";
 
 
 function App() {

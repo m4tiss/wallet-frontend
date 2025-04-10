@@ -1,7 +1,8 @@
 import DashboardCard from "@/components/dashboard/DashboardCard";
+import MoneyChart from "@/components/dashboard/MoneyChart";
 const Dashboard = () => {
   return (
-    <div className="flex flex-col xl:my-25 mt-5 mb-25">
+    <div className="flex flex-col xl:mt-25 xl:mb-0 mt-5 mb-25 gap-6">
       <h2 className="text-4xl my-4 text-center xl:text-start">Strona główna</h2>
       <div className="flex gap-4 flex-wrap justify-center xl:justify-start">
         <DashboardCard
@@ -33,6 +34,9 @@ const Dashboard = () => {
           trend="up"
           trendColor="#227755"
         />
+      </div>
+      <div className="flex">
+        <MoneyChart/>
       </div>
     </div>
   );

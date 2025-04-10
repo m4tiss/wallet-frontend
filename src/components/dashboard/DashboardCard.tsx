@@ -22,7 +22,7 @@ const DashboardCard = ({
   return (
     <Card
       className={`w-80 xl:flex-1 
-    ${specialBg ? "text-white" : ""}`}
+    ${specialBg ? "text-white" : ""} group`}
       style={{
         backgroundImage,
         backgroundSize: "cover",
@@ -39,9 +39,15 @@ const DashboardCard = ({
         <div className="flex gap-2">
           <div className={`text-[${trendColor}] flex gap-1`}>
             {trend === "up" ? (
-              <TrendingUp color={trendColor} />
+              <TrendingUp
+                color={trendColor}
+                className="group-hover:translate-y-[-5px] transition-transform duration-300"
+              />
             ) : (
-              <TrendingDown color={trendColor} />
+              <TrendingDown
+                color={trendColor}
+                className="group-hover:translate-y-[5px] transition-transform duration-300"
+              />
             )}
             <p>{percentage}%</p>
           </div>

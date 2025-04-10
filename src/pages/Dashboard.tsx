@@ -1,5 +1,7 @@
 import DashboardCard from "@/components/dashboard/DashboardCard";
 import MoneyChart from "@/components/dashboard/MoneyChart";
+import InformationPanel from "@/components/dashboard/InformationPanel";
+import { investmentData } from "@/data/InformationItems";
 const Dashboard = () => {
   return (
     <div className="flex flex-col xl:mt-25 xl:mb-0 mt-5 mb-25 gap-6">
@@ -11,7 +13,7 @@ const Dashboard = () => {
           percentage="4.3"
           trend="up"
           trendColor="#227755"
-          specialBg = {true}
+          specialBg={true}
         />
         <DashboardCard
           title="Obligacje"
@@ -35,8 +37,17 @@ const Dashboard = () => {
           trendColor="#227755"
         />
       </div>
-      <div className="flex">
-        <MoneyChart/>
+      <div className="flex flex-wrap justify-center gap-10">
+        <MoneyChart />
+        {investmentData.map((item, index) => (
+          <InformationPanel
+            key={index}
+            title={item.title}
+            description={item.description}
+            bgColor={item.bgColor}
+            image={item.image}
+          />
+        ))}
       </div>
     </div>
   );

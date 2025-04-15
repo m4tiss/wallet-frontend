@@ -6,8 +6,6 @@ import { BondCardProps } from "@/interfaces/BondCardProps";
 const Bonds = () => {
   const { data } = useBonds();
 
-  console.log(data);
-
   return (
     <div className="flex flex-col xl:mt-25 xl:mb-0 mt-5 mb-25 gap-6">
       <h2 className="text-4xl my-4 text-center xl:text-start">

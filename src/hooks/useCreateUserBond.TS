@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from '../config/axios'
 import { useAuth } from "@/context/AuthContext";
 
@@ -14,6 +14,7 @@ type BondData = {
 
 export function useCreateUserBond() {
   const { token } = useAuth()
+  const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: async (data: BondData) => {
@@ -23,6 +24,9 @@ export function useCreateUserBond() {
         }
       })
       return response.data
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['UserBonds'] });
     },
   })
 }

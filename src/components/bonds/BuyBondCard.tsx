@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BondCardProps } from "@/interfaces/BondCardProps";
-
 import BuyBondDrawer from "./BuyBondDrawer";
 
 const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {

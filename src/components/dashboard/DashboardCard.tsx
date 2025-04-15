@@ -33,7 +33,7 @@ const DashboardCard = ({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-3xl">{value}</p>
+        <p className="text-3xl">{value} zł</p>
       </CardContent>
       <CardFooter>
         <div className="flex gap-2">
@@ -51,7 +51,7 @@ const DashboardCard = ({
             )}
             <p>{percentage}%</p>
           </div>
-          <p> z ostatnim miesiącem</p>
+          <p> wygenerowanego zysku</p>
         </div>
       </CardFooter>
     </Card>

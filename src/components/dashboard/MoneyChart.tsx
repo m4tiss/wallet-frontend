@@ -7,12 +7,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const chartData = [
-  { asset: "Obligacje", money: 4489, fill: "#227755" },
-  { asset: "Etf", money: 2489, fill: "#d70000" },
-];
+import { MoneyChartProps } from "@/interfaces/MoneyChartProps";
 
-export function MoneyChart() {
+export function MoneyChart({ data }: { data: MoneyChartProps }) {
+  const chartData = [
+    { asset: "Obligacje", money: data.bonds, fill: "#227755" },
+    { asset: "ETF", money: data.etf, fill: "#d70000" },
+  ];
+
   const total = chartData.reduce((sum, d) => sum + d.money, 0);
 
   return (
@@ -55,7 +57,7 @@ export function MoneyChart() {
                 position="inside"
                 stroke="none"
                 className="fill-white text-sm"
-                formatter={(value: number, entry: any) => {
+                formatter={(value: number) => {
                   const percent = ((value / total) * 100).toFixed(0);
                   return `${percent}%`;
                 }}

@@ -2,32 +2,36 @@ import DashboardCard from "@/components/dashboard/DashboardCard";
 import MoneyChart from "@/components/dashboard/MoneyChart";
 import InformationPanel from "@/components/dashboard/InformationPanel";
 import { investmentData } from "@/data/InformationItems";
+import useUserDashboard from "@/hooks/useUserDashboard";
+
 const Dashboard = () => {
+  const { data } = useUserDashboard();
+  console.log(data);
   return (
     <div className="flex flex-col xl:mt-25 xl:mb-0 mt-5 mb-25 gap-6">
       <h2 className="text-4xl my-4 text-center xl:text-start">Strona główna</h2>
       <div className="flex gap-4 flex-wrap justify-center xl:justify-start">
         <DashboardCard
           title="Całkowite oszczędności"
-          value="24 489 zł"
-          percentage="4.3"
+          value={(Number(data?.total_value ?? 0) + 2000).toString()}
+          percentage={(Number(data?.percent ?? 0) + 1).toString()}
           trend="up"
           trendColor="#227755"
           specialBg={true}
         />
         <DashboardCard
           title="Obligacje"
-          value="4 489 zł"
-          percentage="5.3"
+          value={data?.total_value ?? 0}
+          percentage={data?.percent ?? 0}
           trend="up"
           trendColor="#227755"
         />
         <DashboardCard
           title="Etf"
-          value="2 489 zł"
-          percentage="23.3"
-          trend="down"
-          trendColor="#d70000"
+          value="2 000"
+          percentage="1.00"
+          trend="up"
+          trendColor="#227755"
         />
         <DashboardCard
           title="Zysk"
@@ -38,7 +42,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="flex flex-wrap justify-center gap-10">
-        <MoneyChart />
+      <MoneyChart data={{ bonds:Number(data?.total_value ?? 0), etf: 2000 }} />
         {investmentData.map((item, index) => (
           <InformationPanel
             key={index}

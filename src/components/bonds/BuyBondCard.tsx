@@ -4,12 +4,12 @@ import { BondCardProps } from "@/interfaces/BondCardProps";
 
 import BuyBondDrawer from "./BuyBondDrawer";
 
-const BondCard = ({ bond }: { bond: BondCardProps }) => {
+const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   return (
     <>
       <Card
-        onClick={()=>setIsDrawerOpen(true)}
+        onClick={() => setIsDrawerOpen(true)}
         className="w-80 h-80 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
       >
         <CardHeader>
@@ -37,14 +37,13 @@ const BondCard = ({ bond }: { bond: BondCardProps }) => {
         </CardContent>
       </Card>
       <BuyBondDrawer
-      bond={bond}
-      open={isDrawerOpen}
-      onOpenChange={setIsDrawerOpen}
-      closeDrawer={() => setIsDrawerOpen(false)}
-       />
-
+        bond={bond}
+        open={isDrawerOpen}
+        onOpenChange={setIsDrawerOpen}
+        closeDrawer={() => setIsDrawerOpen(false)}
+      />
     </>
   );
 };
 
-export default BondCard;
+export default BuyBondCard;

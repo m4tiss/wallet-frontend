@@ -1,10 +1,10 @@
-import { Card } from "@/components/ui/card";
 import useBonds from "@/hooks/useBonds";
-import BondCard from "@/components/bonds/BondCard";
+import BuyBondCard from "@/components/bonds/BuyBondCard";
+import YourBonds from "@/components/bonds/YourBonds";
 import { BondCardProps } from "@/interfaces/BondCardProps";
 
 const Bonds = () => {
-  const { data, error, isLoading } = useBonds();
+  const { data } = useBonds();
 
   console.log(data);
 
@@ -13,7 +13,7 @@ const Bonds = () => {
       <h2 className="text-4xl my-4 text-center xl:text-start">
         Twoje obligacje
       </h2>
-      <Card className="w-96" />
+      <YourBonds />
       <h2 className="text-4xl my-4 text-center xl:text-start">Kup obligacje</h2>
       <div className="w-full">
         <div className="flex flex-wrap gap-y-4">
@@ -22,7 +22,7 @@ const Bonds = () => {
               className="w-full flex justify-center xl:justify-start md:w-1/2 lg:w-1/3"
               key={bond.id || index}
             >
-              <BondCard bond={bond} />
+              <BuyBondCard bond={bond} />
             </div>
           ))}
         </div>

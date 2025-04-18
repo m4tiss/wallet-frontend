@@ -33,7 +33,7 @@ const DashboardCard = ({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-3xl">{value} zł</p>
+        <p className="text-3xl">{Number(value).toFixed(2)} zł</p>
       </CardContent>
       <CardFooter>
         <div className="flex gap-2">

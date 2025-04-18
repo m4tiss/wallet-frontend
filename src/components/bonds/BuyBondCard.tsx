@@ -12,7 +12,7 @@ const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {
         className="w-80 h-80 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
       >
         <CardHeader>
-          <p className="text-4xl text-center font-semibold">
+          <p className={`text-4xl text-center font-semibold`}>
             {bond.first_period_interest}%
           </p>
         </CardHeader>

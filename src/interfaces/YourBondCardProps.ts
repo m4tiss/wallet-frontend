@@ -8,4 +8,7 @@ export interface YourBondCardProps {
     margin: string;
     type: string;
     generated_money:number
+    start_date:string
+    end_date:string
+    percent_progress:string
   }

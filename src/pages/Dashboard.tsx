@@ -28,14 +28,14 @@ const Dashboard = () => {
         />
         <DashboardCard
           title="Etf"
-          value="2 000"
+          value="2000"
           percentage="1.00"
           trend="up"
           trendColor="#227755"
         />
         <DashboardCard
           title="Zysk"
-          value="2 123 zł"
+          value="2123"
           percentage="13.3"
           trend="up"
           trendColor="#227755"

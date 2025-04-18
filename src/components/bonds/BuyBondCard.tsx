@@ -1,42 +1,65 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { BondCardProps } from "@/interfaces/BondCardProps";
 import BuyBondDrawer from "./BuyBondDrawer";
+import { Clock, Percent } from "lucide-react";
 
 const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
     <>
       <Card
         onClick={() => setIsDrawerOpen(true)}
-        className="w-80 h-80 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+        className="w-80 h-80 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer relative overflow-hidden"
       >
-        <CardHeader>
-          <p className={`text-4xl text-center font-semibold`}>
+        <CardHeader className="flex items-center justify-end">
+          <div className="bg-primary/10 text-primary px-3 py-1 rounded-xl text-3xl font-bold">
             {bond.first_period_interest}%
-          </p>
+          </div>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <CardTitle className="text-xl font-semibold">{bond.name}</CardTitle>
-          <p>
-            <span className="font-medium">Czas trwania:</span>{" "}
-            {bond.duration_months} miesięcy
-          </p>
-          <p>
-            <span className="font-medium">Rodzaj oprocentowania:</span>{" "}
-            {bond.interest_type === "fixed"
-              ? "Stałoprocentowe"
-              : bond.interest_type === "variable"
-              ? "Zmiennoprocentowe"
-              : "Indeksowane"}
-          </p>
-          {bond.interest_type === "variable" && (
-            <p>
-              <span className="font-medium">Marża:</span> {bond.margin}%
-            </p>
-          )}
+
+        <CardContent className="flex flex-col justify-between h-full pb-6">
+          <div className="space-y-3">
+            <CardTitle className="text-xl font-semibold">{bond.name}</CardTitle>
+
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="w-4 h-4" />
+              <p>
+                <span className="font-medium text-foreground">Czas trwania:</span>{" "}
+                {bond.duration_months} miesięcy
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Percent className="w-4 h-4" />
+              <p>
+                <span className="font-medium text-foreground">Rodzaj oprocentowania:</span>{" "}
+                {bond.interest_type === "fixed"
+                  ? "Stałoprocentowe"
+                  : bond.interest_type === "variable"
+                  ? "Zmiennoprocentowe"
+                  : "Indeksowane"}
+              </p>
+            </div>
+
+            {bond.interest_type === "variable" && (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Percent className="w-4 h-4" />
+                <p>
+                  <span className="font-medium text-foreground">Marża:</span> {bond.margin}%
+                </p>
+              </div>
+            )}
+          </div>
         </CardContent>
       </Card>
+
       <BuyBondDrawer
         bond={bond}
         open={isDrawerOpen}

@@ -26,7 +26,9 @@ const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {
             <span className="font-medium">Rodzaj oprocentowania:</span>{" "}
             {bond.interest_type === "fixed"
               ? "Stałoprocentowe"
-              : "Zmiennoprocentowe"}
+              : bond.interest_type === "variable"
+              ? "Zmiennoprocentowe"
+              : "Indeksowane"}
           </p>
           {bond.interest_type === "variable" && (
             <p>

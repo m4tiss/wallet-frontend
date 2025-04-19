@@ -11,7 +11,7 @@ import { CalendarIcon, TrendingUp } from "lucide-react";
 
 const YourBondCard = ({ bond }: { bond: YourBondCardProps }) => {
   return (
-    <Card className="min-w-80 min-h-36 shadow-md hover:shadow-lg transition-shadow duration-300 text-center cursor-pointer">
+    <Card className="w-80 min-h-36 shadow-md hover:shadow-lg transition-shadow duration-300 text-center cursor-pointer">
       <CardHeader>
         <CardTitle className="text-xl font-semibold text-primary">{bond.name}</CardTitle>
       </CardHeader>

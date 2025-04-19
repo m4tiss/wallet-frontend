@@ -1,6 +1,7 @@
 import useBonds from "@/hooks/useBonds";
 import BuyBondCard from "@/components/bonds/BuyBondCard";
 import YourBonds from "@/components/bonds/YourBonds";
+
 import { BondCardProps } from "@/interfaces/BondCardProps";
 
 const Bonds = () => {

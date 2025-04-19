@@ -48,7 +48,7 @@ const BuyBondCard = ({ bond }: { bond: BondCardProps }) => {
               </p>
             </div>
 
-            {bond.interest_type === "variable" && (
+            {bond.interest_type !== "fixed"  && (
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Percent className="w-4 h-4" />
                 <p>

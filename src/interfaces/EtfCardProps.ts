@@ -4,6 +4,6 @@ export interface EtfCardProps {
     daily_change_percent: string;
     daily_change_value: string;
     date: string;
-    exchange: string;
+    exchange: number;
     time: string;
   }

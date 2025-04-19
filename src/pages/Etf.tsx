@@ -10,7 +10,10 @@ const Etf = () => {
       <h2 className="text-4xl my-4 text-center xl:text-start">Twoje Etfy</h2>
 
       <h2 className="text-4xl my-4 text-center xl:text-start">Dostępne Etfy</h2>
-      {isLoading ? <HashLoader className="mx-10" size={100} />: <Iusq etf={data} />}
+      <div className="flex justify-center xl:justify-start">
+         {isLoading ? <HashLoader className="mx-10" size={100} />: <Iusq etf={data} />}
+      </div>
+     
     </div>
   );
 };

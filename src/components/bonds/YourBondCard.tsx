@@ -22,7 +22,7 @@ const YourBondCard = ({ bond }: { bond: YourBondCardProps }) => {
           <span className="text-muted-foreground">+</span>
           <span className="text-lime-500 flex items-center gap-1">
             <TrendingUp className="w-5 h-5" />
-            {bond.generated_money.toFixed(2)} zł
+            {Number(bond.generated_money).toFixed(2)} zł
           </span>
         </div>
       </CardContent>

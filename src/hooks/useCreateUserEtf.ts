@@ -11,20 +11,20 @@ type EtfData = {
 
 export function useCreateUserEtf() {
   const { token } = useAuth()
-  //const queryClient = useQueryClient()
+  const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: async (data: EtfData) => {
-      const response = await axios.post('/etf/iusq_de/add', data, {
+      const response = await axios.post('/etf/iusq_de', data, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         }
       })
       return response.data
     },
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ['UserEtf'] });
-    // },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['UserEtf'] });
+    },
   })
 }
 

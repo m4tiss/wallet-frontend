@@ -7,8 +7,8 @@ type EtfData = {
   purchase_date: string;
   purchase_price: string;
   units: string;
+  euro_exchange_rate: string
 }
-
 export function useCreateUserEtf() {
   const { token } = useAuth()
   const queryClient = useQueryClient()

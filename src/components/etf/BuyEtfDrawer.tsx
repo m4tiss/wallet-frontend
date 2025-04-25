@@ -30,18 +30,20 @@ const BuyEtfDrawer = ({
   onOpenChange,
   closeDrawer,
 }: BuyEtfDrawerProps) => {
-     const { mutate } = useCreateUserEtf();
+  const { mutate } = useCreateUserEtf();
   const [price, setPrice] = useState<string>("");
   const [units, setUnits] = useState<string>("");
   const [date, setDate] = useState<string>("");
+  const [euroExchangeRate, setEuroExchangeRate] = useState<string>("");
 
   const handleSubmit = () => {
     mutate(
       {
-        name: 'IUSQ.DE',
+        name: "IUSQ.DE",
         purchase_date: date,
         purchase_price: price,
         units: units,
+        euro_exchange_rate: euroExchangeRate,
       },
       {
         onSuccess: () => {
@@ -103,6 +105,20 @@ const BuyEtfDrawer = ({
                 id="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
+                className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="euroExchangeRate" className="block text-sm font-medium text-gray-700">
+                Kurs euro (EUR/PLN)
+              </Label>
+              <Input
+                type="number"
+                step="0.0001"
+                id="euroExchangeRate"
+                value={euroExchangeRate}
+                onChange={(e) => setEuroExchangeRate(e.target.value)}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full"
               />
             </div>

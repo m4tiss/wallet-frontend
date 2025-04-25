@@ -13,11 +13,17 @@ const DashboardCard = ({
   title,
   value,
   percentage,
-  trend,
-  trendColor,
   specialBg = false,
 }: DashboardCardProps) => {
   const backgroundImage = specialBg ? `url(${cardBackground})` : "none";
+
+  let trend: "up" | "down" = "up";
+  let trendColor = "#227755";
+
+  if (Number(percentage) < 0) {
+    trend = "down";
+    trendColor = "#d70000";
+  }
 
   return (
     <Card

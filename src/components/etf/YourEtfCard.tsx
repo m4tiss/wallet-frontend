@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/card";
 import { CalendarIcon, TrendingUp, TrendingDown } from "lucide-react";
 import { YourEtfCardProps } from "@/interfaces/YourEtfCardProps";
-
+import iusqImage from "@/assets/iusq_de.png"
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 const YourEtfCard = ({ etf }: { etf: YourEtfCardProps }) => {
   const percent = parseFloat(etf.percent_change);
   const isPositive = percent >= 0;
@@ -19,11 +20,14 @@ const YourEtfCard = ({ etf }: { etf: YourEtfCardProps }) => {
 
   return (
     <Card className="w-80 min-h-36 shadow-md hover:shadow-lg transition-shadow duration-300 text-center cursor-pointer">
-      <CardHeader>
-        <CardTitle className="text-xl font-semibold text-primary">
-          {etf.name}
-        </CardTitle>
-      </CardHeader>
+        <CardHeader>
+          <CardTitle className="flex justify-center items-center gap-2 text-xl font-semibold">
+            <Avatar>
+              <AvatarImage src={iusqImage} />
+            </Avatar>
+            <div>IUSQ.DE</div>
+          </CardTitle>
+        </CardHeader>
 
       <CardContent className="space-y-3">
 

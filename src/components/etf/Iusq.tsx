@@ -30,11 +30,11 @@ const Iusq = ({ etf }: { etf: EtfCardProps }) => {
 
         <CardContent className="p-4 space-y-5">
           <div className="flex flex-col justify-between items-center">
-            <span className="text-white text-4xl">{etf?.bid}</span>
+            <span className="text-white text-4xl">{Number(etf?.bid).toFixed(2)}</span>
             <span className="font-normal text-sm">Kurs sprzedaży</span>
           </div>
           <div className="flex flex-col justify-between items-center">
-            <span className="text-white text-4xl">{etf?.ask}</span>
+            <span className="text-white text-4xl">{Number(etf?.ask).toFixed(2)}</span>
             <span className="font-normal text-sm">Kurs kupna</span>
           </div>
         </CardContent>

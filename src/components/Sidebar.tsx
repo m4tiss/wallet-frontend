@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "./LogoCard";
 import SidebarTile from "./SidebarTile";
 import { Settings, LogOut } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";

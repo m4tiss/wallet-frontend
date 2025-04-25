@@ -39,7 +39,7 @@ function App() {
                     />
                   </Routes>
                 </div>
-                <MobileMenu />
+                <MobileMenu />     
               </div>
             }
           />

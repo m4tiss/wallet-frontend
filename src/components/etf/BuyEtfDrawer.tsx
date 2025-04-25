@@ -61,8 +61,8 @@ const BuyEtfDrawer = ({
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger />
-      <DrawerContent className="flex justify-center items-center p-4">
-        <DrawerHeader className="w-full max-w-sm mx-auto text-center gap-6">
+      <DrawerContent className="flex justify-center items-center p-4 ">
+        <DrawerHeader className="w-full max-w-sm mx-auto text-center gap-1">
           <DrawerTitle className="flex flex-col text-center">
             <div className="text-4xl font-semibold">IUSQ.DE</div>
           </DrawerTitle>
